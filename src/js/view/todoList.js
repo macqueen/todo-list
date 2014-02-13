@@ -7,9 +7,9 @@ var TodoListView = Backbone.View.extend({
   initialize: function() {
     this.collection = new TodoList();
     this.collection.on('add', this.renderTodo, this);
+    this.render();
   },
 
-  // currently not in use
   render: function() {
     this.collection.each(function(model) {
       this.renderTodo(model);
