@@ -4,6 +4,7 @@ var TodoList = Backbone.Collection.extend({
 
   initialize: function() {
     this.sync('read');
+    this.on('change:completed', this.sync, this);
   },
 
   addTodo: function(todo) {

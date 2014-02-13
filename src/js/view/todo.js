@@ -5,7 +5,8 @@ var TodoView = Backbone.View.extend({
   className: 'todo-item',
 
   events: {
-    'click .delete': 'deleteTodo'
+    'click .delete': 'deleteTodo',
+    'click input:checkbox': 'updateStatus'
   },
 
   template: _.template('<input type="checkbox"><%= task %></input><span class="delete">X</span>'),
@@ -17,6 +18,9 @@ var TodoView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
+    if (this.model.get('completed')) {
+      this.$el.find('input:checkbox').attr('checked', 'true');
+    }
   },
 
   deleteTodo: function() {
@@ -24,6 +28,10 @@ var TodoView = Backbone.View.extend({
     todoList.remove(this.model);
     todoList.sync('delete');
     this.remove();
+  },
+
+  updateStatus: function(e) {
+    this.model.set('completed', e.target.checked);
   }
 
 });
