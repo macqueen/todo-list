@@ -3,6 +3,8 @@
   <head>
   </head>
   <body>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="src/css/todos.css"/>
     <!-- external libs -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
@@ -16,11 +18,12 @@
     <script src="src/js/view/todoList.js"></script>
 
     <div class="container">
-      <div class="todo-list">To Do ->
+      <div class="todo-title">To Do -></div>
+      <div class="todo-list">
         <ul></ul>
         <form class="todo-form">
           <input type="text" class="todo-text"></input>
-          <input type="submit"></input>
+          <input class="add-todo" type="submit" value="Add"></input>
         </form>
       </div>
     </div>
