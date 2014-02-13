@@ -20,7 +20,9 @@ var TodoView = Backbone.View.extend({
   },
 
   deleteTodo: function() {
-    this.model.collection.remove(this.model);
+    var todoList = this.model.collection;
+    todoList.remove(this.model);
+    todoList.sync('delete');
     this.remove();
   }
 
