@@ -19,8 +19,10 @@ var TodoListView = Backbone.View.extend({
   addTodo: function(e) {
     e.preventDefault();
     var todo = _.escape(this.$el.find('.todo-text').val());
-    this.$el.find('.todo-text').val('');
-    this.collection.addTodo(todo);
+    if (todo.length) {
+      this.$el.find('.todo-text').val('');
+      this.collection.addTodo(todo);
+    }
   },
 
   renderTodo: function(model) {
