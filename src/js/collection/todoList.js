@@ -24,6 +24,11 @@ var TodoList = Backbone.Collection.extend({
       models = JSON.stringify(this.toJSON());
       localStorage.setItem('todoItems', models);
     }
+  },
+
+  deleteTodo: function(model) {
+    this.remove(model);
+    this.sync('delete');
   }
 
 });
